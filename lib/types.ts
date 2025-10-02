@@ -1,11 +1,13 @@
 export interface TicketType {
   id: string;
-  name: string;
+  name: string; // e.g. Early Bird, Regular, VIP
   price: number;
   currency: string;
   quantity_available: number;
   quantity_sold: number;
   max_per_person?: number;
+  sales_start?: string; // ISO date string when tickets go on sale
+  sales_end?: string; // ISO date string when ticket sales end
 }
 
 export interface EventAnalytics {
