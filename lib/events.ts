@@ -6,7 +6,7 @@ export const events: Event[] = [
     title: "Midnight Madness",
     slug: "midnight-madness",
     description: "The biggest party of the year...",
-    venue: "Accra International Conference Center",
+    venue: "TBD",
     banner_image_url: "/images/midnight.jpg",
     start_date: "2025-11-15T20:00:00Z",
     end_date: "2025-11-16T04:00:00Z",
