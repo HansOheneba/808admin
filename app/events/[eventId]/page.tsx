@@ -9,8 +9,9 @@ import { TicketsTab } from "@/components/tickets/tickets-tab";
 import { AnalyticsTab } from "@/components/analytics/analytics-tab";
 import { MetadataTab } from "@/components/metadata/metadata-tab";
 import { WaitlistTab } from "@/components/waitlist/waitlist-tab";
-import { UserButton, useUser } from "@clerk/nextjs";
+import { useUser } from "@clerk/nextjs";
 import { CalendarIcon, MapPinIcon } from "lucide-react";
+import { PromoCodesTab } from "@/components/promo/promoCodesTab";
 
 interface EventPageProps {
   params: { eventId: string } | Promise<{ eventId: string }>;
@@ -29,7 +30,7 @@ export default function EventPage({ params }: EventPageProps) {
     return <div className="p-6">Event not found</div>;
   }
 
-  const tabs = ["overview", "tickets", "analytics", "metadata", "waitlist"];
+  const tabs = ["overview", "tickets", "analytics", "metadata", "waitlist", "promotion"];
 
   return (
     <div className="flex flex-col h-screen">
@@ -97,17 +98,19 @@ export default function EventPage({ params }: EventPageProps) {
                 </p>
               </div>
             )}
-            <UserButton afterSignOutUrl="/" />
+            
           </div>
         </div>
 
         {/* Tab Content */}
         <div className="flex-1 bg-gray-50 p-6 overflow-y-auto">
           {activeTab === "overview" && <OverviewTab event={event} />}
-          {activeTab === "tickets" && <TicketsTab event={event} />}
+          {activeTab === "tickets" && <TicketsTab />}
           {activeTab === "analytics" && <AnalyticsTab event={event} />}
           {activeTab === "metadata" && <MetadataTab event={event} />}
           {activeTab === "waitlist" && <WaitlistTab />}
+          {activeTab === "promotion" && <PromoCodesTab/>}
+
         </div>
       </div>
     </div>

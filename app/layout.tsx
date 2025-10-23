@@ -1,10 +1,10 @@
 import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata } from "next";
-import { Courier_Prime } from "next/font/google";
+import { Open_Sans } from "next/font/google";
 import "./globals.css";
 
-const courierPrime = Courier_Prime({
-  variable: "--font-courier-prime",
+const openSans = Open_Sans({
+  variable: "--font-open-sans",
   subsets: ["latin"],
   weight: ["400", "700"],
 });
@@ -60,8 +60,8 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body
-          className={`${courierPrime.variable} antialiased`}
-          style={{ fontFamily: "var(--font-courier-prime)" }}
+          className={`${openSans.variable} antialiased`}
+          style={{ fontFamily: "var(--font-open-sans)" }}
         >
           {children}
         </body>
