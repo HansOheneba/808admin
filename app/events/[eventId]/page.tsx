@@ -12,6 +12,7 @@ import { WaitlistTab } from "@/components/waitlist/waitlist-tab";
 import { useUser } from "@clerk/nextjs";
 import { CalendarIcon, MapPinIcon } from "lucide-react";
 import { PromoCodesTab } from "@/components/promo/promoCodesTab";
+import { ManualEntryTab } from "@/components/manual/manualEntry-tab";
 
 interface EventPageProps {
   params: { eventId: string } | Promise<{ eventId: string }>;
@@ -30,7 +31,7 @@ export default function EventPage({ params }: EventPageProps) {
     return <div className="p-6">Event not found</div>;
   }
 
-  const tabs = ["overview", "tickets", "analytics", "metadata", "waitlist", "promotion"];
+  const tabs = ["overview", "tickets", "analytics", "metadata", "waitlist", "promotion","manual"];
 
   return (
     <div className="flex flex-col h-screen">
@@ -98,7 +99,6 @@ export default function EventPage({ params }: EventPageProps) {
                 </p>
               </div>
             )}
-            
           </div>
         </div>
 
@@ -109,8 +109,8 @@ export default function EventPage({ params }: EventPageProps) {
           {activeTab === "analytics" && <AnalyticsTab event={event} />}
           {activeTab === "metadata" && <MetadataTab event={event} />}
           {activeTab === "waitlist" && <WaitlistTab />}
-          {activeTab === "promotion" && <PromoCodesTab/>}
-
+          {activeTab === "promotion" && <PromoCodesTab />}
+          {activeTab === "manual" && <ManualEntryTab />}
         </div>
       </div>
     </div>
